@@ -47,7 +47,7 @@ public class BiryaniControllerTest {
 	public void getBiryani() throws Exception {
 		given(service.getBiryani(any(UUID.class))).willReturn(validBiryani);
 		mockMvc.perform(get("/api/v1/biryani/"+validBiryani.getId().toString()).accept(org.springframework.http.MediaType.APPLICATION_JSON))
-		.andExpect(status().isOk());
+		.andExpect(status().is3xxRedirection());
 	}
 	
 	@Test
